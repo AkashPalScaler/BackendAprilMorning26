@@ -15,7 +15,7 @@ public class Student extends User {
 //        this.name = "AKAHS"; //non-private properties can be accessed just like own property
         this.psp = psp;
         this.iq = 12;
-        this.phone = 1234; // Parent private properties are not inherited directly - they can be used by child through parent class contructors or functions
+//        this.phone = 1234; // Parent private properties are not inherited directly - they can be used by child through parent class contructors or functions
         this.setPhone(12334);
         System.out.println("Student: Parameterised constructor");
     }
