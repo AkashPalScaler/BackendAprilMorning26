@@ -1,0 +1,35 @@
+package org.example.ProducerConsumer;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.concurrent.ConcurrentLinkedDeque;
+
+public class Store {
+    private int maxSize; //Number of shelves present
+    private List<Object> items; //Actual shelves
+
+    Store(int maxSize){
+        this.maxSize = maxSize;
+        this.items = new ArrayList<>();
+    }
+
+    public int getMaxSize() {
+        return maxSize;
+    }
+
+    public List<Object> getItems() {
+        return items;
+    }
+
+    public void addItem() {
+        System.out.println("Producer producing, current size " + this.items.size());
+        this.items.add(new Object());
+    }
+
+    public void removeItem() {
+        items.remove(items.size() - 1);
+        System.out.println("Consumer consuming, current size " + this.items.size());
+
+    }
+}
