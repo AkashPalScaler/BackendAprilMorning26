@@ -4,19 +4,25 @@ import java.util.concurrent.Semaphore;
 
 public class Consumer implements  Runnable{
     private Store store;
+    Semaphore prodSema;
+    Semaphore consSema;
 
-    public Consumer(Store store) {
+    public Consumer(Store store, Semaphore prodSema, Semaphore consSema) {
         this.store = store;
+        this.prodSema = prodSema;
+        this.consSema = consSema;
     }
 
     @Override
     public void run() {
         while (true) {
-            synchronized (store){
-                if (store.getItems().size() > 0) { // Item available on a shelf
-                    store.removeItem();
-                }
+            try {
+                consSema.acquire();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
+            store.removeItem();
+                    prodSema.release();
         }
     }
 }

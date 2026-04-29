@@ -4,19 +4,25 @@ import java.util.concurrent.Semaphore;
 
 public class Producer implements Runnable{
     private Store store;
+    Semaphore prodSema;
+    Semaphore consSema;
 
-    public Producer(Store store) {
+    public Producer(Store store, Semaphore prodSema, Semaphore consSema) {
         this.store = store;
+        this.prodSema = prodSema;
+        this.consSema = consSema;
     }
 
     @Override
     public void run(){
         while(true) {
-            synchronized (store) {
-                if (store.getItems().size() < store.getMaxSize()) { // if any empty shelf
-                    store.addItem();
-                }
+            try {
+                prodSema.acquire();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
+            store.addItem();
+                    consSema.release();
         }
     }
 }
