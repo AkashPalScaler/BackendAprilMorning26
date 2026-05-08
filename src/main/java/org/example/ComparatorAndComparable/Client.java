@@ -3,6 +3,7 @@ package org.example.ComparatorAndComparable;
 import java.text.CollationElementIterator;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Client {
@@ -30,5 +31,17 @@ public class Client {
             System.out.println(item.getId());
         }
 
+        // Anonymous class
+        Collections.sort(items, new Comparator<Item>() {
+            @Override
+            public int compare(Item o1, Item o2) {
+                return o1.getQuantity() - o2.getQuantity();
+            }
+        });
+
+        //Lambda class
+        Collections.sort(items, (Item o1, Item o2) -> {
+            return o1.getQuantity() - o2.getQuantity();
+        });
     }
 }
