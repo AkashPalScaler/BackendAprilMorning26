@@ -89,5 +89,40 @@ public class Client {
                 })
                 .limit(2)
                 .toList();
+
+        int sum = 0;
+        for(Integer x : nums){
+            sum += x;
+        }
+        System.out.println(sum);
+
+        Integer sum2 = nums.stream()
+                .reduce(0, (total, element) -> {
+                    return total + element;
+                });
+        System.out.println("Sums " + sum2);
+
+        //FindMax
+
+        Integer max1 = Integer.MIN_VALUE;
+        for(Integer x : nums){
+            if(max1 < x){
+                max1 = x;
+            }
+        }
+
+        Integer max2 = nums.stream().reduce(Integer.MIN_VALUE, (max, element) -> {
+            if(max < element) return element;
+            else return max;
+        });
+
     }
 }
+
+// findMax(List<T extends Comparable<>> arr)
+// {
+//         compareTo(item1, item2); -> +ve if item1 is bigger, -ve if item2 is bigger, 0 if both are equal
+// }
+// findMax(List<Integer>)
+//FindMax(List<Item>)
+//FindMax(List<Float>)

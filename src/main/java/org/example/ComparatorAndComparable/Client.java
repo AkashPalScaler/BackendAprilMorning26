@@ -1,5 +1,7 @@
 package org.example.ComparatorAndComparable;
 
+import org.example.Lambda.NumberPrinter;
+
 import java.text.CollationElementIterator;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -43,5 +45,8 @@ public class Client {
         Collections.sort(items, (Item o1, Item o2) -> {
             return o1.getQuantity() - o2.getQuantity();
         });
+
+//        Comparable<Item> itemx = new Item("5", "mac", 2500, 2);
+//        Runnable r = new NumberPrinter();
     }
 }
