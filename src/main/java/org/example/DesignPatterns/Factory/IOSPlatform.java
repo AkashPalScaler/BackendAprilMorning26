@@ -19,6 +19,11 @@ public class IOSPlatform implements Platform{
         return new IOSUIComponentFactory();
     }
 
+    @Override
+    public HookFactory createHookFactory() {
+        return null;
+    }
+
 //    @Override
 //    public Button createButton() {
 //        return new IOSButton();

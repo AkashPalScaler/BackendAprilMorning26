@@ -19,6 +19,11 @@ public class AndroidPlatform implements Platform{
         return new AndroidUIComponentFactory();
     }
 
+    @Override
+    public HookFactory createHookFactory() {
+        return null;
+    }
+
 //    @Override
 //    public Button createButton() {
 //        return new AndroidButton();
