@@ -26,4 +26,28 @@ public class Cell {
     public void setCellState(CellState cellState) {
         this.cellState = cellState;
     }
+
+    public void display() {
+        if(this.cellState == CellState.EMPTY) {
+            System.out.print("| |");
+        }else {
+            System.out.print("|" + this.symbol.getSym() + "|");
+        }
+    }
+
+    public Integer getRow() {
+        return row;
+    }
+
+    public void setRow(Integer row) {
+        this.row = row;
+    }
+
+    public Integer getCol() {
+        return col;
+    }
+
+    public void setCol(Integer col) {
+        this.col = col;
+    }
 }

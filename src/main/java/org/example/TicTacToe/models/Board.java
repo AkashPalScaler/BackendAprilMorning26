@@ -19,4 +19,29 @@ public class Board {
             this.grid.add(row);
         }
     }
+
+    public void display() {
+        for (List<Cell> row : this.grid) {
+            for (Cell cell : row) {
+                cell.display();
+            }
+            System.out.println();
+        }
+    }
+
+    public Integer getSize() {
+        return size;
+    }
+
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+
+    public List<List<Cell>> getGrid() {
+        return grid;
+    }
+
+    public void setGrid(List<List<Cell>> grid) {
+        this.grid = grid;
+    }
 }

@@ -1,6 +1,6 @@
 package org.example.TicTacToe.models;
 
-public class Player {
+public abstract class Player {
     String name;
     Symbol symbol;
     PlayerType playerType;
@@ -26,5 +26,7 @@ public class Player {
     public void setSymbol(Symbol symbol) {
         this.symbol = symbol;
     }
+
+    public abstract Cell makeMove(Board board);
 }
 

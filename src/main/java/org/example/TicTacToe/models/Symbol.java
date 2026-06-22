@@ -4,6 +4,10 @@ public class Symbol {
     Character sym;
     String color;
 
+    public Symbol(Character sym) {
+        this.sym = sym;
+    }
+
     public Character getSym() {
         return sym;
     }
